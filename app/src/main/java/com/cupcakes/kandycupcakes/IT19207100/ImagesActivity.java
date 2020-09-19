@@ -12,8 +12,10 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.cupcakes.kandycupcakes.MainActivity;
 import com.cupcakes.kandycupcakes.R;
 import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -38,11 +40,15 @@ public class ImagesActivity extends AppCompatActivity implements ImageAdapter.On
     private Context mContext;
     public ImageView updimage;
 
+    FloatingActionButton  fa;
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_images2);
 
+        fa=findViewById(R.id.fab);
         updimage = findViewById(R.id.updateimage);
         mRecyclerView = findViewById(R.id.recycler);
         mRecyclerView.setHasFixedSize(true);
@@ -78,6 +84,17 @@ public class ImagesActivity extends AppCompatActivity implements ImageAdapter.On
                 mProgressCircle.setVisibility(View.INVISIBLE);
             }
         });
+
+
+        fa.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                Intent in = new Intent(ImagesActivity.this, addvehical.class);
+                startActivity(in);
+            }
+        });
+
     }
 
     @Override
