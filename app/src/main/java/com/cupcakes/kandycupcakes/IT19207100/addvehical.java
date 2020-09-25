@@ -19,9 +19,13 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.basgeekball.awesomevalidation.AwesomeValidation;
+import com.basgeekball.awesomevalidation.ValidationStyle;
+import com.basgeekball.awesomevalidation.utility.RegexTemplate;
 import com.cupcakes.kandycupcakes.R;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.android.material.textfield.TextInputLayout;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.storage.FirebaseStorage;
@@ -44,10 +48,14 @@ public class addvehical extends AppCompatActivity {
     private ProgressBar mProgressBar;
     private Uri mImageUri;
 
+    private TextInputLayout textvehical;
+
 
     private StorageReference mStorageRef;
     private DatabaseReference mDatabaseRef;
     private StorageTask mUploadTask;
+
+    AwesomeValidation awesomeValidation;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -58,11 +66,32 @@ public class addvehical extends AppCompatActivity {
         mTextViewShowUploads = findViewById(R.id.mTextViewShowUploads);
         mEditTextFileName = findViewById(R.id.edit_text_file_name);
         mImageView = findViewById(R.id.image_view);
-        mProgressBar = findViewById(R.id.progress_bar);
-
+        //mProgressBar = findViewById(R.id.progress_bar);
         pass=findViewById(R.id.passengers);
         price=findViewById(R.id.dayprice);
         trans=findViewById(R.id.spinner);
+
+        awesomeValidation = new AwesomeValidation(ValidationStyle.BASIC);
+        awesomeValidation.addValidation(this,R.id.image_view,
+                RegexTemplate.NOT_EMPTY,R.string.fill);
+
+
+        awesomeValidation.addValidation(this,R.id.edit_text_file_name,
+                RegexTemplate.NOT_EMPTY,R.string.fill);
+
+        awesomeValidation.addValidation(this,R.id.edit_text_file_name,"[a-zA-Z ]{1,20}",R.string.invalid);
+
+        awesomeValidation.addValidation(this,R.id.passengers,
+                RegexTemplate.NOT_EMPTY,R.string.fill);
+
+        awesomeValidation.addValidation(this,R.id.spinner,
+                RegexTemplate.NOT_EMPTY,R.string.fill);
+
+        awesomeValidation.addValidation(this,R.id.dayprice,
+                RegexTemplate.NOT_EMPTY,R.string.fill);
+
+
+
 
         mStorageRef = FirebaseStorage.getInstance().getReference("uploads");
         mDatabaseRef = FirebaseDatabase.getInstance().getReference("uploads");
@@ -76,10 +105,25 @@ public class addvehical extends AppCompatActivity {
         mButtonUpload.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (mUploadTask != null && mUploadTask.isInProgress()) {
-                    Toast.makeText(addvehical.this, "Upload in progress", Toast.LENGTH_SHORT).show();
-                } else {
-                    uploadFile();
+
+                if (awesomeValidation.validate()) {
+                    if(trans.getSelectedItem().equals("Select One")) {
+                        Toast.makeText(addvehical.this, "Select the Transmission Type", Toast.LENGTH_SHORT).show();
+                    }
+                    else {
+                        if (mImageUri != null) {
+                            if (mUploadTask != null && mUploadTask.isInProgress()) {
+                                Toast.makeText(addvehical.this, "Upload in progress", Toast.LENGTH_SHORT).show();
+                            } else {
+                                uploadFile();
+                            }
+                        } else {
+                            Toast.makeText(addvehical.this, "Select the image", Toast.LENGTH_SHORT).show();
+                        }
+                    }
+                }else{
+
+                    Toast.makeText(addvehical.this, "Please Fill The All Fields", Toast.LENGTH_SHORT).show();
                 }
             }
         });
@@ -119,7 +163,7 @@ public class addvehical extends AppCompatActivity {
     }
     private void uploadFile() {
        final ProgressDialog pd = new ProgressDialog(this);
-        pd.setMessage("uploading");
+        pd.setMessage("Uploading");
         pd.show();
 
         if (mImageUri != null) {
@@ -134,7 +178,7 @@ public class addvehical extends AppCompatActivity {
                             handler.postDelayed(new Runnable() {
                                 @Override
                                 public void run() {
-                                    mProgressBar.setProgress(0);
+                                  //  mProgressBar.setProgress(0);
                                 }
                             }, 500);
 
@@ -161,7 +205,7 @@ public class addvehical extends AppCompatActivity {
                         @Override
                         public void onProgress(UploadTask.TaskSnapshot taskSnapshot) {
                             double progress = (100.0 * taskSnapshot.getBytesTransferred() / taskSnapshot.getTotalByteCount());
-                            mProgressBar.setProgress((int) progress);
+                            //mProgressBar.setProgress((int) progress);
                         }
                     });
         } else {

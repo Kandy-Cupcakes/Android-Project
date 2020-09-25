@@ -1,5 +1,6 @@
 package com.cupcakes.kandycupcakes.IT19207100;
 
+import android.app.ProgressDialog;
 import android.content.ContentResolver;
 import android.content.Context;
 import android.content.Intent;
@@ -173,6 +174,9 @@ public class updatevehical extends AppCompatActivity {
 */
        if (mImageUri != null) {
 
+           final ProgressDialog pd = new ProgressDialog(this);
+           pd.setMessage("uploading");
+           pd.show();
             StorageReference fileReference = mStorageRef.child(System.currentTimeMillis()
                     + "." + getFileExtension(mImageUri));
             mUploadTask = fileReference.putFile(mImageUri)
@@ -205,7 +209,7 @@ public class updatevehical extends AppCompatActivity {
 
                                     dref=FirebaseDatabase.getInstance().getReference().child("uploads").child(key);
                                     dref.setValue(up);
-
+                                    pd.dismiss();
                                     Toast.makeText(updatevehical.this, "Updated successfully", Toast.LENGTH_SHORT).show();
 
                                 }
@@ -221,6 +225,14 @@ public class updatevehical extends AppCompatActivity {
 
        }else{
 
+           final ProgressDialog pd = new ProgressDialog(this);
+           pd.setMessage("uploading");
+           pd.show();
+           pd.show();
+           pd.show();
+           pd.show();
+
+
            DatabaseReference upref = FirebaseDatabase.getInstance().getReference().child("uploads").child(key);
            upref.addListenerForSingleValueEvent(new ValueEventListener() {
                @Override
@@ -235,6 +247,10 @@ public class updatevehical extends AppCompatActivity {
 
                    dref=FirebaseDatabase.getInstance().getReference().child("uploads").child(key);
                    dref.setValue(up);
+
+
+
+                   pd.dismiss();
 
                    Toast.makeText(updatevehical.this, "Updated successfully", Toast.LENGTH_SHORT).show();
 
@@ -298,6 +314,7 @@ public class updatevehical extends AppCompatActivity {
             category.add("Auto");
             category.add("Manual");
 
+
             ArrayAdapter<String> dataAdapter;
             dataAdapter = new ArrayAdapter<>(this,android.R.layout.simple_spinner_item,category);
             dataAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
@@ -313,6 +330,7 @@ public class updatevehical extends AppCompatActivity {
             List<String> category = new ArrayList<>();
             category.add("Manual");
             category.add("Auto");
+
 
             ArrayAdapter<String> dataAdapter;
             dataAdapter = new ArrayAdapter<>(this,android.R.layout.simple_spinner_item,category);

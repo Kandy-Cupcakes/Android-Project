@@ -1,6 +1,7 @@
 package com.cupcakes.kandycupcakes.IT19207100;
 
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -8,6 +9,7 @@ import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.Toast;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -122,24 +124,57 @@ public class ImagesActivity extends AppCompatActivity implements ImageAdapter.On
 
     @Override
     public void onWhatEverClick(int position) {
-        Toast.makeText(ImagesActivity.this, "whtever click at position"+position, Toast.LENGTH_SHORT).show();
+        Toast.makeText(ImagesActivity.this, "you click at position"+position, Toast.LENGTH_SHORT).show();
 
+        Upload selectedItem = mUploads.get(position);
+
+        Intent in = new Intent(ImagesActivity.this,updatevehical.class);
+        in.putExtra("name",selectedItem.getName());
+        in.putExtra("photo",selectedItem.getImageUrl());
+        in.putExtra("KEY",selectedItem.getKey());
+        in.putExtra("passenger",selectedItem.getPassengers());
+        in.putExtra("price",selectedItem.getPrice());
+        in.putExtra("transmission",selectedItem.getTransmisson());
+        startActivity(in);
 
     }
 
     @Override
-    public void onDeleteClick(int position) {
-       Upload selectedItem = mUploads.get(position);
-       final String selectedkey = selectedItem.getKey();
+    public void onDeleteClick(final int position) {
 
-        StorageReference imageref = mStorage.getReferenceFromUrl(selectedItem.getImageUrl());
-        imageref.delete().addOnSuccessListener(new OnSuccessListener<Void>() {
-            @Override
-            public void onSuccess(Void aVoid) {
-                mDatabaseRef.child(selectedkey).removeValue();
-                Toast.makeText(ImagesActivity.this, "Item deleted", Toast.LENGTH_SHORT).show();
-            }
-        });
+
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setMessage("Are you sure want to Delete this ?")
+                .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+
+                        Upload selectedItem = mUploads.get(position);
+                        final String selectedkey = selectedItem.getKey();
+                        StorageReference imageref = mStorage.getReferenceFromUrl(selectedItem.getImageUrl());
+                        imageref.delete().addOnSuccessListener(new OnSuccessListener<Void>() {
+                            @Override
+                            public void onSuccess(Void aVoid) {
+                                mDatabaseRef.child(selectedkey).removeValue();
+                                Toast.makeText(ImagesActivity.this, "Item deleted", Toast.LENGTH_SHORT).show();
+                            }
+                        });
+                    }
+                })
+                .setNegativeButton("No", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+
+                        dialogInterface.cancel();
+                    }
+                });
+
+        AlertDialog alertDialog = builder.create();
+        alertDialog.show();
+
+
+
+
     }
 
     @Override

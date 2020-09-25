@@ -9,46 +9,40 @@
 
     <Button
         android:id="@+id/mButtonChooseImage"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="20dp"
-        android:layout_marginTop="128dp"
+        android:layout_width="100dp"
+        android:layout_height="31dp"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="110dp"
+        android:layout_marginEnd="44dp"
+        android:background="@color/colorPrimary"
         android:text="Choose file"
+        android:textColor="@color/cardview_light_background"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/image_view"
-        app:layout_constraintTop_toBottomOf="@+id/progress_bar" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
         android:id="@+id/edit_text_file_name"
         android:layout_width="183dp"
         android:layout_height="39dp"
-        android:layout_marginStart="52dp"
+        android:layout_marginStart="44dp"
         android:layout_toEndOf="@+id/mButtonChooseImage"
-        android:hint="Enter Vehical Model"
+        android:inputType="text"
         app:layout_constraintBaseline_toBaselineOf="@+id/textView7"
         app:layout_constraintStart_toEndOf="@+id/textView7" />
 
     <ImageView
         android:id="@+id/image_view"
-        android:layout_width="223dp"
-        android:layout_height="158dp"
-        android:layout_above="@id/progress_bar"
+        android:layout_width="208dp"
+        android:layout_height="156dp"
+
         android:layout_below="@id/edit_text_file_name"
 
-        android:layout_marginStart="20dp"
-        android:layout_marginTop="20dp"
-        android:background="@drawable/ic_launcher_background"
+        android:layout_marginStart="12dp"
+        android:background="@drawable/upload2"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/progress_bar" />
-
-    <ProgressBar
-        android:id="@+id/progress_bar"
-        style="@style/Widget.AppCompat.ProgressBar.Horizontal"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_above="@+id/mButtonUpload"
-        android:layout_alignParentStart="true"
-        android:layout_marginBottom="16dp"
-        tools:ignore="MissingConstraints" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <Button
         android:id="@+id/mButtonUpload"
@@ -97,8 +91,9 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="24dp"
         android:layout_marginTop="28dp"
-        android:text="Vehical Name"
+        android:text="VEHICAL BRAND"
         android:textColor="@color/common_google_signin_btn_text_dark_focused"
+        android:textIsSelectable="true"
         android:textSize="16sp"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
@@ -110,7 +105,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="20dp"
         android:layout_marginTop="32dp"
-        android:text="Passengers"
+        android:text="PASSENGERS"
         android:textColor="@color/common_google_signin_btn_text_dark_focused"
         android:textSize="16sp"
         android:textStyle="bold"
@@ -123,7 +118,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="24dp"
         android:layout_marginTop="28dp"
-        android:text="Transmission"
+        android:text="TRANSMISSION"
         android:textColor="@color/common_google_signin_btn_text_dark_focused"
         android:textSize="16sp"
         android:textStyle="bold"
@@ -132,7 +127,7 @@
 
     <Spinner
         android:id="@+id/spinner"
-        android:layout_width="115dp"
+        android:layout_width="145dp"
         android:layout_height="47dp"
         android:layout_marginStart="52dp"
         android:layout_marginTop="10dp"
@@ -148,7 +143,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="24dp"
         android:layout_marginTop="36dp"
-        android:text="Day Price"
+        android:text="PRICE PER DAY"
         android:textColor="@color/common_google_signin_btn_text_dark_focused"
         android:textSize="16sp"
         android:textStyle="bold"
@@ -157,7 +152,7 @@
 
     <EditText
         android:id="@+id/passengers"
-        android:layout_width="79dp"
+        android:layout_width="40dp"
         android:layout_height="45dp"
         android:layout_marginStart="68dp"
         android:layout_marginTop="10dp"
@@ -172,13 +167,16 @@
         android:id="@+id/dayprice"
         android:layout_width="180dp"
         android:layout_height="45dp"
-        android:layout_marginStart="84dp"
-        android:layout_marginTop="10dp"
+        android:layout_marginStart="56dp"
+        android:layout_marginTop="12dp"
         android:ems="10"
         android:inputType="numberDecimal"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.076"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toEndOf="@+id/textView11"
         app:layout_constraintTop_toBottomOf="@+id/spinner" />
+
+
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
