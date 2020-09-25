@@ -77,6 +77,7 @@ public class updatevehical extends AppCompatActivity {
         trans=findViewById(R.id.spinner1);
 
 
+
         up = new Upload();
 
         getData();
@@ -278,6 +279,7 @@ public class updatevehical extends AppCompatActivity {
     private void getData(){
         if(getIntent().hasExtra("name") && getIntent().hasExtra("photo") ){
 
+
             name = getIntent().getStringExtra("name");
             myimage = getIntent().getStringExtra("photo");
              key = getIntent().getStringExtra("KEY");
@@ -292,21 +294,27 @@ public class updatevehical extends AppCompatActivity {
     private void setData(){
 
 
+
    //   updimage.setImageResource(Integer.parseInt(myimage));
         Picasso.with(mContext)
                 .load(myimage)
-                .placeholder(R.mipmap.ic_launcher)
+               // .placeholder(R.mipmap.ic_launcher)
                 .fit()
                 .centerCrop()
                 .into(updimage);
 
 //updimage.setImageURI(myimage);
+
+
         uptxt.setText(name);
-
-
         pass.setText(String.valueOf(ppasen));
         daypprice.setText(String.valueOf(ppricee));
         //trans.getSelectedItem()=pspinner;
+
+        //get cursor to end of the text position
+        uptxt.setSelection(uptxt.getText().length());
+        pass.setSelection(pass.getText().length());
+        daypprice.setSelection(daypprice.getText().length());
 
         if(pspinner.equals("Auto")){
 
