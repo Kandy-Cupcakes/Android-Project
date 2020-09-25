@@ -122,6 +122,7 @@
             android:layout_marginTop="24dp"
             android:layout_marginEnd="20dp"
             android:text="Rs."
+
             android:textColor="@color/common_google_signin_btn_text_dark_focused"
             android:textSize="18sp"
             app:layout_constraintEnd_toStartOf="@+id/pprice"
@@ -199,6 +200,18 @@
             android:textStyle="bold"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textView5" />
+
+        <TextView
+            android:id="@+id/textView12"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="142dp"
+            android:layout_marginTop="88dp"
+            android:layout_marginEnd="49dp"
+            android:drawableStart="@drawable/price3"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/textView8"
+            app:layout_constraintTop_toTopOf="parent" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
