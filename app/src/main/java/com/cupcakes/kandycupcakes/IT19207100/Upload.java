@@ -8,6 +8,7 @@ public class Upload {
     private String mImageUrl;
     private  String mKey;
     private int mPassengers;
+    private int bags;
     private double mprice;
     private String transmisson;
 
@@ -18,7 +19,7 @@ public class Upload {
     }
 
 
-    public Upload(String name, String imageUrl,int passengers,double price,String Trans) {
+    public Upload(String name, String imageUrl,int passengers,int bag ,double price,String Trans) {
         if (name.trim().equals("")) {
             name = "No Name";
         }
@@ -27,6 +28,7 @@ public class Upload {
         mPassengers=passengers;
         mprice=price;
         transmisson=Trans;
+        bags=bag;
     }
     public String getName() {
         return mName;
@@ -63,6 +65,14 @@ public class Upload {
 
     public void setTransmisson(String transmisson) {
         this.transmisson = transmisson;
+    }
+
+    public int getBags() {
+        return bags;
+    }
+
+    public void setBags(int bags) {
+        this.bags = bags;
     }
 
     @Exclude

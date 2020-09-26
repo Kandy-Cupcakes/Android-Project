@@ -40,7 +40,7 @@ public class addvehical extends AppCompatActivity {
     private static final int PICK_IMAGE_REQUEST = 1;
     private Button mButtonChooseImage;
     private Button mButtonUpload;
-    private EditText pass,price;
+    private EditText pass,price,bag;
     private Spinner trans;
     private TextView mTextViewShowUploads;
     private EditText mEditTextFileName;
@@ -70,6 +70,7 @@ public class addvehical extends AppCompatActivity {
         pass=findViewById(R.id.passengers);
         price=findViewById(R.id.dayprice);
         trans=findViewById(R.id.spinner);
+        bag=findViewById(R.id.bag);
 
         awesomeValidation = new AwesomeValidation(ValidationStyle.BASIC);
         awesomeValidation.addValidation(this,R.id.image_view,
@@ -85,6 +86,9 @@ public class addvehical extends AppCompatActivity {
                 RegexTemplate.NOT_EMPTY,R.string.fill);
 
         awesomeValidation.addValidation(this,R.id.spinner,
+                RegexTemplate.NOT_EMPTY,R.string.fill);
+
+        awesomeValidation.addValidation(this,R.id.bag,
                 RegexTemplate.NOT_EMPTY,R.string.fill);
 
         awesomeValidation.addValidation(this,R.id.dayprice,
@@ -185,7 +189,7 @@ public class addvehical extends AppCompatActivity {
                             pd.dismiss();
                             Toast.makeText(addvehical.this, "Upload successful", Toast.LENGTH_LONG).show();
                             Upload upload = new Upload(mEditTextFileName.getText().toString().trim(),
-                                    taskSnapshot.getDownloadUrl().toString(),Integer.parseInt(pass.getText().toString().trim()),Double.parseDouble(price.getText().toString().trim()), (String) trans.getSelectedItem());
+                                    taskSnapshot.getDownloadUrl().toString(),Integer.parseInt(pass.getText().toString().trim()),Integer.parseInt(bag.getText().toString().trim()),Double.parseDouble(price.getText().toString().trim()), (String) trans.getSelectedItem());
 
                             String uploadId = mDatabaseRef.push().getKey();
                             mDatabaseRef.child(uploadId).setValue(upload);

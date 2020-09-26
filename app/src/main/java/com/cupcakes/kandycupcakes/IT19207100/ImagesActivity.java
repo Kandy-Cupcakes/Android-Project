@@ -111,6 +111,7 @@ public class ImagesActivity extends AppCompatActivity implements ImageAdapter.On
        in.putExtra("photo",selectedItem.getImageUrl());
         in.putExtra("KEY",selectedItem.getKey());
         in.putExtra("passenger",selectedItem.getPassengers());
+        in.putExtra("bag",selectedItem.getBags());
         in.putExtra("price",selectedItem.getPrice());
         in.putExtra("transmission",selectedItem.getTransmisson());
         startActivity(in);
@@ -133,6 +134,7 @@ public class ImagesActivity extends AppCompatActivity implements ImageAdapter.On
         in.putExtra("photo",selectedItem.getImageUrl());
         in.putExtra("KEY",selectedItem.getKey());
         in.putExtra("passenger",selectedItem.getPassengers());
+        in.putExtra("bag",selectedItem.getBags());
         in.putExtra("price",selectedItem.getPrice());
         in.putExtra("transmission",selectedItem.getTransmisson());
         startActivity(in);

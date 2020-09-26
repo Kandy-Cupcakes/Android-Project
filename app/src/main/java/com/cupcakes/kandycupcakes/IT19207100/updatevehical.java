@@ -18,6 +18,9 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.basgeekball.awesomevalidation.AwesomeValidation;
+import com.basgeekball.awesomevalidation.ValidationStyle;
+import com.basgeekball.awesomevalidation.utility.RegexTemplate;
 import com.cupcakes.kandycupcakes.R;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.database.DataSnapshot;
@@ -39,11 +42,11 @@ public class updatevehical extends AppCompatActivity {
     private static final int PICK_IMAGE_REQUEST = 1;
     ImageView updimage;
     EditText uptxt;
-    EditText pass,daypprice;
+    EditText pass,daypprice,bag;
     Spinner trans;
     Button update,chs;
     String name;
-    int ppasen;
+    int ppasen,bagn;
     Double ppricee;
     String pspinner;
 
@@ -58,6 +61,7 @@ public class updatevehical extends AppCompatActivity {
     private DatabaseReference mDatabaseRef;
 
     private StorageTask mUploadTask;
+    AwesomeValidation awesomeValidation;
 
 
     @Override
@@ -73,9 +77,28 @@ public class updatevehical extends AppCompatActivity {
         update = findViewById(R.id.btnupdate);
         chs = findViewById(R.id.chooseimage);
         pass = findViewById(R.id.passengers1);
+        bag = findViewById(R.id.bagss);
         daypprice = findViewById(R.id.dayprice1);
         trans=findViewById(R.id.spinner1);
 
+        awesomeValidation = new AwesomeValidation(ValidationStyle.BASIC);
+        awesomeValidation.addValidation(this,R.id.updateimage,
+                RegexTemplate.NOT_EMPTY,R.string.fill);
+
+
+        awesomeValidation.addValidation(this,R.id.updatetext,
+                RegexTemplate.NOT_EMPTY,R.string.fill);
+
+        awesomeValidation.addValidation(this,R.id.updatetext,"[a-zA-Z ]{1,20}",R.string.invalid);
+
+        awesomeValidation.addValidation(this,R.id.passengers1,
+                RegexTemplate.NOT_EMPTY,R.string.fill);
+
+        awesomeValidation.addValidation(this,R.id.bagss,
+                RegexTemplate.NOT_EMPTY,R.string.fill);
+
+        awesomeValidation.addValidation(this,R.id.dayprice1,
+                RegexTemplate.NOT_EMPTY,R.string.fill);
 
 
         up = new Upload();
@@ -88,46 +111,12 @@ public class updatevehical extends AppCompatActivity {
             @Override
             public void onClick(View view) {
 
-                uploadFile();;
-
-             //   System.out.println("shanukaprabodha deshapriya");
-              //  System.out.println(key);
-             /*  if (mImageUri != null) {
-                    StorageReference fileReference = mStorageRef.child(System.currentTimeMillis()
-                            + "." + getFileExtension(mImageUri));
-                    mUploadTask = fileReference.putFile(mImageUri).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
-                        @Override
-                        public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
-                            myimage2 = taskSnapshot.getDownloadUrl().toString();
-                            System.out.println(myimage2);
-
-                        }
-                    });
-                }*/
-
-
-
-
-              /*  DatabaseReference upref = FirebaseDatabase.getInstance().getReference().child("uploads").child(key);
-                upref.addListenerForSingleValueEvent(new ValueEventListener() {
-                    @Override
-                    public void onDataChange(DataSnapshot dataSnapshot) {
-                       // if(dataSnapshot.hasChild(key)){
-
-                        up.setName(uptxt.getText().toString().trim());
-                            up.setImageUrl(myimage.toString().trim());
-                            dref=FirebaseDatabase.getInstance().getReference().child("uploads").child(key);
-                            dref.setValue(up);
-
-                            Toast.makeText(updatevehical.this, "Updated successfully", Toast.LENGTH_SHORT).show();
-
-                    }
-
-                    @Override
-                    public void onCancelled(DatabaseError databaseError) {
-                        Toast.makeText(updatevehical.this, "Not Updated successfully", Toast.LENGTH_SHORT).show();
-                    }
-                });*/
+                if (awesomeValidation.validate()) {
+                uploadFile();
+                }
+                else{
+                    Toast.makeText(updatevehical.this, "Please Fill The All Fields", Toast.LENGTH_SHORT).show();
+                }
             }
         });
 
@@ -205,6 +194,7 @@ public class updatevehical extends AppCompatActivity {
                                     up.setName(uptxt.getText().toString().trim());
                                     up.setImageUrl(myimage2.toString().trim());
                                     up.setPassengers(Integer.parseInt(pass.getText().toString().trim()));
+                                    up.setBags(Integer.parseInt(bag.getText().toString().trim()));
                                     up.setPrice(Double.parseDouble(daypprice.getText().toString().trim()));
                                     up.setTransmisson((String) trans.getSelectedItem());
 
@@ -243,6 +233,7 @@ public class updatevehical extends AppCompatActivity {
                    up.setName(uptxt.getText().toString().trim());
                    up.setImageUrl(myimage.toString().trim());
                    up.setPassengers(Integer.parseInt(pass.getText().toString().trim()));
+                   up.setBags(Integer.parseInt(bag.getText().toString().trim()));
                    up.setPrice(Double.parseDouble(daypprice.getText().toString().trim()));
                    up.setTransmisson((String) trans.getSelectedItem());
 
@@ -284,6 +275,7 @@ public class updatevehical extends AppCompatActivity {
             myimage = getIntent().getStringExtra("photo");
              key = getIntent().getStringExtra("KEY");
              ppasen = getIntent().getIntExtra("passenger",1);
+             bagn = getIntent().getIntExtra("bag",1);
              ppricee = getIntent().getDoubleExtra("price",5.00);
              pspinner = getIntent().getStringExtra("transmission");
         }
@@ -308,6 +300,7 @@ public class updatevehical extends AppCompatActivity {
 
         uptxt.setText(name);
         pass.setText(String.valueOf(ppasen));
+        bag.setText(String.valueOf(bagn));
         daypprice.setText(String.valueOf(ppricee));
         //trans.getSelectedItem()=pspinner;
 

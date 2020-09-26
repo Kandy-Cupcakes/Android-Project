@@ -52,11 +52,11 @@
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginStart="40dp"
-        android:layout_marginTop="52dp"
+        android:layout_marginStart="64dp"
+        android:layout_marginTop="16dp"
         android:text="Upload"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView11" />
+        app:layout_constraintTop_toBottomOf="@+id/textView13" />
 
     <View
         android:id="@+id/divider"
@@ -129,14 +129,29 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="24dp"
+        android:drawableStart="@drawable/bag"
+        android:drawablePadding="4dp"
+        android:text="Bag(s)"
+        android:textColor="@color/common_google_signin_btn_text_dark_focused"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:layout_constraintTop_toBottomOf="@+id/textView10"
+        tools:layout_editor_absoluteX="3dp" />
+
+    <TextView
+        android:id="@+id/textView13"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="3dp"
+        android:layout_marginTop="24dp"
         android:drawableStart="@drawable/price"
         android:drawablePadding="4dp"
         android:text="PRICE PER DAY"
         android:textColor="@color/common_google_signin_btn_text_dark_focused"
         android:textSize="16sp"
         android:textStyle="bold"
-        app:layout_constraintTop_toBottomOf="@+id/textView10"
-        tools:layout_editor_absoluteX="3dp" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView11" />
 
     <EditText
         android:id="@+id/passengers1"
@@ -152,17 +167,26 @@
         app:layout_constraintStart_toEndOf="@+id/textView9" />
 
     <EditText
+        android:id="@+id/bagss"
+        android:layout_width="40dp"
+        android:layout_height="45dp"
+        android:layout_marginStart="104dp"
+        android:ems="10"
+        android:hint="5"
+        android:inputType="number"
+        app:layout_constraintBaseline_toBaselineOf="@+id/textView11"
+        app:layout_constraintStart_toEndOf="@+id/textView11" />
+
+    <EditText
         android:id="@+id/dayprice1"
         android:layout_width="180dp"
         android:layout_height="45dp"
-        android:layout_marginStart="40dp"
+        android:layout_marginStart="36dp"
         android:ems="10"
         android:hint="9500.00"
         android:inputType="numberDecimal"
-        app:layout_constraintBaseline_toBaselineOf="@+id/textView11"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.128"
-        app:layout_constraintStart_toEndOf="@+id/textView11" />
+        app:layout_constraintBaseline_toBaselineOf="@+id/textView13"
+        app:layout_constraintStart_toEndOf="@+id/textView13" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

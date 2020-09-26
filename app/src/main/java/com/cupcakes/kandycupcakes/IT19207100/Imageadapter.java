@@ -36,8 +36,10 @@ class ImageAdapter extends RecyclerView.Adapter<ImageAdapter.ImageViewHolder> {
         Upload uploadCurrent = mUploads.get(position);
         holder.textViewName.setText(uploadCurrent.getName());
         holder.Tpassen.setText(String.valueOf(uploadCurrent.getPassengers()));
+        holder.Bags.setText(String.valueOf(uploadCurrent.getBags()));
         holder.Tprice.setText(String.valueOf(uploadCurrent.getPrice()));
         holder.Ttrans.setText(String.valueOf(uploadCurrent.getTransmisson()));
+       // holder.Ttrans.setText(String.valueOf(uploadCurrent.getTransmisson()));
         Picasso.with(mContext)
                 .load(uploadCurrent.getImageUrl())
                 .placeholder(R.mipmap.ic_launcher)
@@ -50,7 +52,7 @@ class ImageAdapter extends RecyclerView.Adapter<ImageAdapter.ImageViewHolder> {
         return mUploads.size();
     }
     public class ImageViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener , View.OnCreateContextMenuListener , MenuItem.OnMenuItemClickListener {
-        public TextView textViewName,Tpassen,Tprice,Ttrans;
+        public TextView textViewName,Tpassen,Tprice,Ttrans,Bags;
         public ImageView imageView;
 
         public ImageViewHolder(View itemView) {
@@ -60,6 +62,7 @@ class ImageAdapter extends RecyclerView.Adapter<ImageAdapter.ImageViewHolder> {
             Tpassen = itemView.findViewById(R.id.pasen);
             Tprice = itemView.findViewById(R.id.pprice);
             Ttrans = itemView.findViewById(R.id.trnsm);
+            Bags=itemView.findViewById(R.id.bagg);
 
             itemView.setOnClickListener(this);
 
