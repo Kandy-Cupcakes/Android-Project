@@ -10,4 +10,19 @@
     <string name="update_answer">Update answer</string>
     <string name="delete">DELETE</string>
     <string name="manage_faq">Manage FAQ</string>
+    <string name="name">Name</string>
+    <string name="nic">NIC</string>
+    <string name="mobile">Mobile</string>
+    <string name="bdate">Booking Date</string>
+    <string name="rdate">Return Date</string>
+    <string name="selectpaymentmethod">Select Payment Method</string>
+    <string name="bookingdetails">Bookung Details</string>
+    <string name="selfdrive">Self Drive</string>
+    <string name="aircond">Air Conditioned</string>
+    <string name="passenger">Passengers</string>
+    <string name="trans">Transmission</string>
+    <string name="Bags">Bag(s)</string>
+    <string name="booknow">Book Now!</string>
+    <string name="rs">Rs.</string>
+    <string name="perday">0/= Per Day</string>
 </resources>
