@@ -25,4 +25,11 @@
     <string name="booknow">Book Now!</string>
     <string name="rs">Rs.</string>
     <string name="perday">0/= Per Day</string>
+    <string name="invalid_name">Please Enter a valid Name</string>
+    <string name="invalid_mobile">Enter a valid Mobile number</string>
+    <string name="invalid_nic">Enter a valid NIC number</string>
+    <string name="Taphere">tap_here</string>
+    <string name="invalid">Select a Date</string>
+    <string name="invalid_b_date">Select a Date</string>
+    <string name="invalid_r_date">Select a Date</string>
 </resources>
