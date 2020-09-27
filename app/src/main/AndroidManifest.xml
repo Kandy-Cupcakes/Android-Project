@@ -9,9 +9,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".IT19207100.ImagesActivity" />
-        <activity android:name=".IT19207100.addvehical" />
-        <activity android:name=".IT19207100.updatevehical" />
+
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

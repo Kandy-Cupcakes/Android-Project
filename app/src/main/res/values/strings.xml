@@ -1,13 +1,4 @@
 <resources>
     <string name="app_name">Kandy Cupcakes</string>
-    <string name="fill">Please Fill the Field </string>
-    <string name="invalid">Please enter the correct input</string>
-
-    <string-array name="transmission">Select Transmission
-
-        <item>Select One</item>
-        <item>Auto</item>
-        <item>Manual</item>
-    </string-array>
 
 </resources>
