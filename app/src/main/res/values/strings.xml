@@ -1,3 +1,13 @@
 <resources>
     <string name="app_name">Kandy Cupcakes</string>
+    <string name="add_faq">Add FAQ</string>
+    <string name="enter_question">Enter question</string>
+    <string name="enter_answer">Enter answer</string>
+    <string name="questionList">TextView</string>
+    <string name="answerList">TextView</string>
+    <string name="update">UPDATE</string>
+    <string name="update_question">Update question</string>
+    <string name="update_answer">Update answer</string>
+    <string name="delete">DELETE</string>
+    <string name="manage_faq">Manage FAQ</string>
 </resources>
