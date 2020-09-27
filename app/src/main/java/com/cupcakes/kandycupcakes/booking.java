@@ -41,10 +41,13 @@ public class booking extends AppCompatActivity {
     Date date2;
 
 
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_booking);
+
 
         name = (EditText) findViewById(R.id.name);
         nic = (EditText) findViewById(R.id.nic);
