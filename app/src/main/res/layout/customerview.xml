@@ -7,11 +7,11 @@
 
     <ListView
         android:id="@+id/faqList"
-        android:layout_width="326dp"
-        android:layout_height="514dp"
-        android:layout_marginStart="16dp"
+        android:layout_width="384dp"
+        android:layout_height="495dp"
+        android:layout_marginStart="4dp"
         android:layout_marginTop="84dp"
-        android:background="@drawable/unnamedfianl"
+        android:background="@drawable/faqz2"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -19,10 +19,12 @@
         android:id="@+id/textView2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="10dp"
         android:text="FAQ"
         android:textColor="#000000"
         android:textSize="36sp"
-        tools:layout_editor_absoluteX="145dp"
-        tools:layout_editor_absoluteY="36dp" />
+        app:layout_constraintBottom_toTopOf="@+id/faqList"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -10,7 +10,7 @@
         android:id="@+id/faqList"
         android:layout_width="369dp"
         android:layout_height="355dp"
-        android:background="@drawable/faq"
+        android:background="@drawable/faqz2"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.619"
@@ -33,8 +33,8 @@
 
     <EditText
         android:id="@+id/question"
-        android:layout_width="388dp"
-        android:layout_height="53dp"
+        android:layout_width="378dp"
+        android:layout_height="54dp"
         android:layout_marginStart="24dp"
         android:backgroundTint="#9A1006"
         android:ems="10"
@@ -48,8 +48,8 @@
 
     <EditText
         android:id="@+id/answer"
-        android:layout_width="392dp"
-        android:layout_height="56dp"
+        android:layout_width="378dp"
+        android:layout_height="54dp"
         android:layout_marginStart="24dp"
         android:backgroundTint="#9A1006"
         android:ems="10"

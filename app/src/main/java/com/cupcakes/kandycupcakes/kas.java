@@ -8,6 +8,7 @@ import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -56,6 +57,7 @@ public class kas extends AppCompatActivity {
 
             @Override
             public void onClick(View view) {
+
                 addFaq();
             }
         });
@@ -100,7 +102,7 @@ public class kas extends AppCompatActivity {
         });
     }
 
-    private void showUpdate(final String Id , String question , String answer) {
+    private void showUpdate(final String Id , final String question , String answer) {
 
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
 
@@ -111,7 +113,11 @@ public class kas extends AppCompatActivity {
         builder.setView(view);
 
         final EditText questionU = (EditText) view.findViewById(R.id.questionU);
+        TextView que = view.findViewById(R.id.questionU);
+        que.setText(question);
         final EditText answerU = (EditText) view.findViewById(R.id.answerU);
+        TextView ans = view.findViewById(R.id.answerU);
+        ans.setText(answer);
         final Button button = (Button) view.findViewById(R.id.update);
         final Button buttonDelete = (Button) view.findViewById(R.id.delete);
 
@@ -128,6 +134,12 @@ public class kas extends AppCompatActivity {
 
                 if(TextUtils.isEmpty(question)) {
                     questionU.setError("Required");
+                    answerU.setError("Required");
+                    return;
+                }
+
+                if(TextUtils.isEmpty(answer)) {
+                    answerU.setError("Required");
                     return;
                 }
                 updateFaq(Id, question, answer);
@@ -171,7 +183,17 @@ public class kas extends AppCompatActivity {
         String Question = question.getText().toString().trim();
         String Answer = answer.getText().toString().trim();
 
-        if(!TextUtils.isEmpty(Question)) {
+        //if(!TextUtils.isEmpty(Question)) {
+
+
+            if(TextUtils.isEmpty(Question)) {
+                question.setError("Required");
+                return;
+            }
+            if(TextUtils.isEmpty(Answer)) {
+                answer.setError("Required");
+                return;
+            }
 
             String Id = databaseFAQ.push().getKey();
 
@@ -179,8 +201,8 @@ public class kas extends AppCompatActivity {
 
             databaseFAQ.child(Id).setValue(faq);
             Toast.makeText(this , "FAQ added" , Toast.LENGTH_LONG).show();
-        }
-        else
-            Toast.makeText(this, "You should enter a answer", Toast.LENGTH_LONG).show();
+       // }
+       // else
+           // Toast.makeText(this, "You should enter a answer", Toast.LENGTH_LONG).show();
     }
 }
