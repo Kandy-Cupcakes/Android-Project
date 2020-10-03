@@ -41,7 +41,7 @@ public class addvehical extends AppCompatActivity {
     private Button mButtonChooseImage;
     private Button mButtonUpload;
     private EditText pass,price,bag;
-    private Spinner trans;
+    private Spinner trans,avail;
     private TextView mTextViewShowUploads;
     private EditText mEditTextFileName;
     private ImageView mImageView;
@@ -71,6 +71,7 @@ public class addvehical extends AppCompatActivity {
         price=findViewById(R.id.dayprice);
         trans=findViewById(R.id.spinner);
         bag=findViewById(R.id.bag);
+        avail=findViewById(R.id.spinner2);
 
         awesomeValidation = new AwesomeValidation(ValidationStyle.BASIC);
         awesomeValidation.addValidation(this,R.id.image_view,
@@ -189,7 +190,8 @@ public class addvehical extends AppCompatActivity {
                             pd.dismiss();
                             Toast.makeText(addvehical.this, "Upload successful", Toast.LENGTH_LONG).show();
                             Upload upload = new Upload(mEditTextFileName.getText().toString().trim(),
-                                    taskSnapshot.getDownloadUrl().toString(),Integer.parseInt(pass.getText().toString().trim()),Integer.parseInt(bag.getText().toString().trim()),Double.parseDouble(price.getText().toString().trim()), (String) trans.getSelectedItem());
+                                    taskSnapshot.getDownloadUrl().toString(),Integer.parseInt(pass.getText().toString().trim()),Integer.parseInt(bag.getText().toString().trim()),Double.parseDouble(price.getText().toString().trim()),
+                                    (String) trans.getSelectedItem(),(String)avail.getSelectedItem());
 
                             String uploadId = mDatabaseRef.push().getKey();
                             mDatabaseRef.child(uploadId).setValue(upload);

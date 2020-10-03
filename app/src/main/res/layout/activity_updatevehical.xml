@@ -42,7 +42,7 @@
         android:layout_below="@id/updatetext"
 
         android:layout_marginStart="8dp"
-        android:background="@drawable/upload2"
+        android:background="@drawable/upd2"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -52,11 +52,14 @@
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginStart="64dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginStart="268dp"
+        android:layout_marginTop="28dp"
+        android:layout_marginEnd="39dp"
+        android:background="@drawable/shape"
         android:text="Upload"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView13" />
+        app:layout_constraintTop_toBottomOf="@+id/textView22" />
 
     <View
         android:id="@+id/divider"
@@ -124,6 +127,17 @@
         app:layout_constraintHorizontal_bias="0.103"
         app:layout_constraintStart_toEndOf="@+id/textView10" />
 
+    <Spinner
+        android:id="@+id/spinner3"
+        android:layout_width="188dp"
+        android:layout_height="46dp"
+        android:layout_marginStart="31dp"
+        android:entries="@array/availability"
+        app:layout_constraintBaseline_toBaselineOf="@+id/textView22"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.377"
+        app:layout_constraintStart_toEndOf="@+id/textView22" />
+
     <TextView
         android:id="@+id/textView11"
         android:layout_width="wrap_content"
@@ -152,6 +166,21 @@
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView11" />
+
+    <TextView
+        android:id="@+id/textView22"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="24dp"
+        android:drawableStart="@drawable/avail"
+        android:drawablePadding="4dp"
+        android:text="AVAILABILITY"
+        android:textColor="@color/common_google_signin_btn_text_dark_focused"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView13" />
 
     <EditText
         android:id="@+id/passengers1"

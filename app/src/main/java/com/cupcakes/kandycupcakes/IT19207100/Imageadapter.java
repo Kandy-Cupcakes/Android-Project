@@ -1,6 +1,7 @@
 package com.cupcakes.kandycupcakes.IT19207100;
 
 import android.content.Context;
+import android.graphics.Color;
 import android.view.ContextMenu;
 import android.view.LayoutInflater;
 import android.view.Menu;
@@ -22,6 +23,8 @@ class ImageAdapter extends RecyclerView.Adapter<ImageAdapter.ImageViewHolder> {
     private List<Upload> mUploads;
     private OnItemClickListener mListener;
 
+
+
     public ImageAdapter(Context context, List<Upload> uploads) {
         mContext = context;
         mUploads = uploads;
@@ -39,7 +42,18 @@ class ImageAdapter extends RecyclerView.Adapter<ImageAdapter.ImageViewHolder> {
         holder.Bags.setText(String.valueOf(uploadCurrent.getBags()));
         holder.Tprice.setText(String.valueOf(uploadCurrent.getPrice()));
         holder.Ttrans.setText(String.valueOf(uploadCurrent.getTransmisson()));
+        holder.Availb.setText(String.valueOf(uploadCurrent.getAvailable()));
+
+        if(uploadCurrent.getAvailable().equals("Available")) {
+            holder.Availb.setBackgroundColor(Color.parseColor("#3ddc84"));
+        }
+        else {
+            holder.Availb.setBackgroundColor(Color.parseColor("#b00020"));
+        }
+
        // holder.Ttrans.setText(String.valueOf(uploadCurrent.getTransmisson()));
+
+
         Picasso.with(mContext)
                 .load(uploadCurrent.getImageUrl())
                 .placeholder(R.mipmap.ic_launcher)
@@ -52,7 +66,7 @@ class ImageAdapter extends RecyclerView.Adapter<ImageAdapter.ImageViewHolder> {
         return mUploads.size();
     }
     public class ImageViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener , View.OnCreateContextMenuListener , MenuItem.OnMenuItemClickListener {
-        public TextView textViewName,Tpassen,Tprice,Ttrans,Bags;
+        public TextView textViewName,Tpassen,Tprice,Ttrans,Bags,Availb;
         public ImageView imageView;
 
         public ImageViewHolder(View itemView) {
@@ -63,6 +77,7 @@ class ImageAdapter extends RecyclerView.Adapter<ImageAdapter.ImageViewHolder> {
             Tprice = itemView.findViewById(R.id.pprice);
             Ttrans = itemView.findViewById(R.id.trnsm);
             Bags=itemView.findViewById(R.id.bagg);
+            Availb=itemView.findViewById(R.id.availablity);
 
             itemView.setOnClickListener(this);
 

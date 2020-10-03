@@ -101,7 +101,7 @@ public class ImagesActivity extends AppCompatActivity implements ImageAdapter.On
 
     @Override
     public void onItemClick(int position) {
-        Toast.makeText(ImagesActivity.this, "Normal click at position"+ position, Toast.LENGTH_SHORT).show();
+        Toast.makeText(ImagesActivity.this, "you click at position"+ position, Toast.LENGTH_SHORT).show();
 
      //   Upload up = new Upload();
         Upload selectedItem = mUploads.get(position);
@@ -114,6 +114,7 @@ public class ImagesActivity extends AppCompatActivity implements ImageAdapter.On
         in.putExtra("bag",selectedItem.getBags());
         in.putExtra("price",selectedItem.getPrice());
         in.putExtra("transmission",selectedItem.getTransmisson());
+        in.putExtra("available",selectedItem.getAvailable());
         startActivity(in);
 
 
@@ -137,6 +138,7 @@ public class ImagesActivity extends AppCompatActivity implements ImageAdapter.On
         in.putExtra("bag",selectedItem.getBags());
         in.putExtra("price",selectedItem.getPrice());
         in.putExtra("transmission",selectedItem.getTransmisson());
+        in.putExtra("available",selectedItem.getAvailable());
         startActivity(in);
 
     }

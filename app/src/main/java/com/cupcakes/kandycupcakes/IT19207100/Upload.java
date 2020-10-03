@@ -11,6 +11,7 @@ public class Upload {
     private int bags;
     private double mprice;
     private String transmisson;
+    private String available;
 
 
 
@@ -19,7 +20,7 @@ public class Upload {
     }
 
 
-    public Upload(String name, String imageUrl,int passengers,int bag ,double price,String Trans) {
+    public Upload(String name, String imageUrl,int passengers,int bag ,double price,String Trans,String avail) {
         if (name.trim().equals("")) {
             name = "No Name";
         }
@@ -29,6 +30,7 @@ public class Upload {
         mprice=price;
         transmisson=Trans;
         bags=bag;
+        available=avail;
     }
     public String getName() {
         return mName;
@@ -73,6 +75,14 @@ public class Upload {
 
     public void setBags(int bags) {
         this.bags = bags;
+    }
+
+    public String getAvailable() {
+        return available;
+    }
+
+    public void setAvailable(String available) {
+        this.available = available;
     }
 
     @Exclude

@@ -43,12 +43,12 @@ public class updatevehical extends AppCompatActivity {
     ImageView updimage;
     EditText uptxt;
     EditText pass,daypprice,bag;
-    Spinner trans;
+    Spinner trans,upavail;
     Button update,chs;
     String name;
     int ppasen,bagn;
     Double ppricee;
-    String pspinner;
+    String pspinner,pavailable;
 
     String myimage,myimage2,myimage3;
     private Context mContext;
@@ -80,6 +80,7 @@ public class updatevehical extends AppCompatActivity {
         bag = findViewById(R.id.bagss);
         daypprice = findViewById(R.id.dayprice1);
         trans=findViewById(R.id.spinner1);
+        upavail=findViewById(R.id.spinner3);
 
         awesomeValidation = new AwesomeValidation(ValidationStyle.BASIC);
         awesomeValidation.addValidation(this,R.id.updateimage,
@@ -197,6 +198,7 @@ public class updatevehical extends AppCompatActivity {
                                     up.setBags(Integer.parseInt(bag.getText().toString().trim()));
                                     up.setPrice(Double.parseDouble(daypprice.getText().toString().trim()));
                                     up.setTransmisson((String) trans.getSelectedItem());
+                                    up.setAvailable((String) upavail.getSelectedItem());
 
                                     dref=FirebaseDatabase.getInstance().getReference().child("uploads").child(key);
                                     dref.setValue(up);
@@ -236,6 +238,7 @@ public class updatevehical extends AppCompatActivity {
                    up.setBags(Integer.parseInt(bag.getText().toString().trim()));
                    up.setPrice(Double.parseDouble(daypprice.getText().toString().trim()));
                    up.setTransmisson((String) trans.getSelectedItem());
+                   up.setAvailable((String) upavail.getSelectedItem());
 
                    dref=FirebaseDatabase.getInstance().getReference().child("uploads").child(key);
                    dref.setValue(up);
@@ -278,6 +281,7 @@ public class updatevehical extends AppCompatActivity {
              bagn = getIntent().getIntExtra("bag",1);
              ppricee = getIntent().getDoubleExtra("price",5.00);
              pspinner = getIntent().getStringExtra("transmission");
+             pavailable = getIntent().getStringExtra("available");
         }
         else
             Toast.makeText(this,"no data",Toast.LENGTH_SHORT).show();
@@ -325,7 +329,7 @@ public class updatevehical extends AppCompatActivity {
 
 
         }
-        else{
+        if(pspinner.equals("Manual")){
 
 
             List<String> category = new ArrayList<>();
@@ -342,6 +346,39 @@ public class updatevehical extends AppCompatActivity {
 
         }
 
+
+        if(pavailable.equals("Available")){
+
+            List<String> category1 = new ArrayList<>();
+            category1.add("Available");
+            category1.add("Not Available");
+
+
+            ArrayAdapter<String> dataAdapter;
+            dataAdapter = new ArrayAdapter<>(this,android.R.layout.simple_spinner_item,category1);
+            dataAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+
+            upavail.setAdapter(dataAdapter);
+
+
+
+        }
+        else{
+
+
+            List<String> category1 = new ArrayList<>();
+            category1.add("Not Available");
+            category1.add("Available");
+
+
+            ArrayAdapter<String> dataAdapter;
+            dataAdapter = new ArrayAdapter<>(this,android.R.layout.simple_spinner_item,category1);
+            dataAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+
+            upavail.setAdapter(dataAdapter);
+
+
+        }
 
     }
 
