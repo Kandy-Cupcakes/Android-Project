@@ -1,6 +1,8 @@
 package com.cupcakes.kandycupcakes;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.view.GravityCompat;
+import androidx.drawerlayout.widget.DrawerLayout;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -10,15 +12,19 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.cupcakes.kandycupcakes.IT19152110.customerView;
 import com.cupcakes.kandycupcakes.IT19207100.ImagesActivity;
+import com.cupcakes.kandycupcakes.IT19210698.availablevehicles;
 
 public class LoginActivity extends AppCompatActivity {
 
+    DrawerLayout drawerLayout;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
+        drawerLayout = findViewById(R.id.navdraw3);
 
         final   EditText  username =(EditText) findViewById(R.id.txtusername);
         final EditText  pasword = (EditText)findViewById(R.id.txtpassword);
@@ -71,5 +77,47 @@ public class LoginActivity extends AppCompatActivity {
                 Toast.makeText(LoginActivity.this, "Please enter username and password", Toast.LENGTH_SHORT).show();
 
         }
+    }
+
+
+
+    //nav Drawer
+
+    public void ClickMenu(View view){
+        openDrawer(drawerLayout);
+    }
+
+    private static void openDrawer(DrawerLayout drawerLayout) {
+        drawerLayout.openDrawer(GravityCompat.START);
+    }
+
+    public void ClickClose(View view){
+        closeDrawer(drawerLayout);
+    }
+
+    private void closeDrawer(DrawerLayout drawerLayout) {
+        if (drawerLayout.isDrawerOpen(GravityCompat.START)){
+            drawerLayout.closeDrawer(GravityCompat.START);
+        }
+    }
+
+    public void ClickHome(View view){
+        Intent intent = new Intent(LoginActivity.this, MainActivity.class);
+        startActivity(intent);
+    }
+
+    public void Clickbook(View view){
+        Intent intent = new Intent(LoginActivity.this, availablevehicles.class);
+        startActivity(intent);
+    }
+
+    public void ClickAddFaq(View view){
+        Intent intent = new Intent(LoginActivity.this, customerView.class);
+        startActivity(intent);
+    }
+
+    public void adminlogin(View view){
+        Intent intent = new Intent(LoginActivity.this,LoginActivity.class);
+        startActivity(intent);
     }
 }

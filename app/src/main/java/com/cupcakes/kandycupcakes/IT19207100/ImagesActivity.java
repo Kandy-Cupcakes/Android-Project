@@ -4,16 +4,24 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
+import android.widget.PopupMenu;
 import android.widget.ProgressBar;
 import android.widget.Toast;
 
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.view.GravityCompat;
+import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.cupcakes.kandycupcakes.Admin;
+import com.cupcakes.kandycupcakes.LoginActivity;
 import com.cupcakes.kandycupcakes.MainActivity;
 import com.cupcakes.kandycupcakes.R;
 import com.google.android.gms.tasks.OnSuccessListener;
@@ -29,7 +37,7 @@ import com.google.firebase.storage.StorageReference;
 import java.util.ArrayList;
 import java.util.List;
 
-public class ImagesActivity extends AppCompatActivity implements ImageAdapter.OnItemClickListener {
+public class ImagesActivity extends AppCompatActivity implements ImageAdapter.OnItemClickListener, PopupMenu.OnMenuItemClickListener {
 
     private RecyclerView mRecyclerView;
     private ImageAdapter mAdapter;
@@ -43,12 +51,15 @@ public class ImagesActivity extends AppCompatActivity implements ImageAdapter.On
     public ImageView updimage;
 
     FloatingActionButton  fa;
-
+    DrawerLayout drawerLayout;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_images2);
+
+        ActionBar actionBar=getSupportActionBar();
+        actionBar.hide();
 
         fa=findViewById(R.id.fab);
         updimage = findViewById(R.id.updateimage);
@@ -57,6 +68,8 @@ public class ImagesActivity extends AppCompatActivity implements ImageAdapter.On
         mRecyclerView.setLayoutManager(new LinearLayoutManager(this));
         mProgressCircle = findViewById(R.id.progresscycle);
         mUploads = new ArrayList<>();
+        LinearLayout toolbar = findViewById(R.id.toolbar);
+
 
         mAdapter = new ImageAdapter(ImagesActivity.this, mUploads);
         mRecyclerView.setAdapter(mAdapter);
@@ -186,4 +199,30 @@ public class ImagesActivity extends AppCompatActivity implements ImageAdapter.On
         super.onDestroy();
         mDatabaseRef.removeEventListener(mDBListener);
     }
+
+
+    public void showpopup(View v){
+        PopupMenu popupMenu = new PopupMenu(this,v);
+        popupMenu.setOnMenuItemClickListener(this);
+        popupMenu.inflate(R.menu.menu);
+        popupMenu.show();
+    }
+
+    @Override
+    public boolean onMenuItemClick(MenuItem menuItem) {
+        int id=menuItem.getItemId();
+
+        if(id==R.id.logout){
+
+            Toast.makeText(getApplicationContext(),"You Logged Out",Toast.LENGTH_SHORT).show();
+
+            Intent in = new Intent(ImagesActivity.this, LoginActivity.class);
+            startActivity(in);
+
+        }
+
+        return super.onOptionsItemSelected(menuItem);
+    }
+
+
 }

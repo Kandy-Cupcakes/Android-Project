@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:background="@color/colorPrimaryDark"
     android:orientation="vertical"
-    tools:context=".availablevehicles">
+    tools:context=".IT19210698.availablevehicles">
 
     <SearchView
         android:id="@+id/searchview"

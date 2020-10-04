@@ -7,6 +7,8 @@
     android:background="@drawable/back3"
     tools:context=".IT19210520.allpayment">
 
+
+
     <ImageView
         android:id="@+id/back"
         android:layout_width="399dp"

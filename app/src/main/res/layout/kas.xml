@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".kas">
+    tools:context=".IT19152110.kas">
 
     <ListView
         android:id="@+id/faqList"

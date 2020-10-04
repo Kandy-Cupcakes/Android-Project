@@ -1,17 +1,25 @@
 package com.cupcakes.kandycupcakes;
 
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.view.GravityCompat;
+import androidx.drawerlayout.widget.DrawerLayout;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.PopupMenu;
 
 import com.cupcakes.kandycupcakes.IT19152110.customerView;
+import com.cupcakes.kandycupcakes.IT19207100.ImagesActivity;
+import com.cupcakes.kandycupcakes.IT19210698.Bookings;
 import com.cupcakes.kandycupcakes.IT19210698.availablevehicles;
+import com.cupcakes.kandycupcakes.IT19210698.booking;
 
 public class MainActivity extends AppCompatActivity {
 
+    DrawerLayout drawerLayout;
     Button add;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -23,6 +31,7 @@ public class MainActivity extends AppCompatActivity {
         Button bookvehical = findViewById(R.id.book);
         Button pay = findViewById(R.id.paymentbtn);
 
+        drawerLayout = findViewById(R.id.navdraw3);
 
         add.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -49,7 +58,46 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-
-
     }
+
+    //nav Drawer
+
+    public void ClickMenu(View view){
+        openDrawer(drawerLayout);
+    }
+
+    private static void openDrawer(DrawerLayout drawerLayout) {
+        drawerLayout.openDrawer(GravityCompat.START);
+    }
+
+    public void ClickClose(View view){
+        closeDrawer(drawerLayout);
+    }
+
+    private void closeDrawer(DrawerLayout drawerLayout) {
+        if (drawerLayout.isDrawerOpen(GravityCompat.START)){
+            drawerLayout.closeDrawer(GravityCompat.START);
+        }
+    }
+
+    public void ClickHome(View view){
+        Intent intent = new Intent(MainActivity.this, MainActivity.class);
+        startActivity(intent);
+    }
+
+    public void Clickbook(View view){
+        Intent intent = new Intent(MainActivity.this, availablevehicles.class);
+        startActivity(intent);
+    }
+
+    public void ClickAddFaq(View view){
+        Intent intent = new Intent(MainActivity.this,customerView.class);
+        startActivity(intent);
+    }
+
+    public void adminlogin(View view){
+        Intent intent = new Intent(MainActivity.this,LoginActivity.class);
+        startActivity(intent);
+    }
+
 }

@@ -9,6 +9,7 @@
     tools:context=".IT19207100.addvehical"
     >
 
+
     <Button
         android:id="@+id/mButtonChooseImage"
         android:layout_width="111dp"
@@ -34,7 +35,7 @@
         android:layout_toEndOf="@+id/mButtonChooseImage"
         android:hint="Toyota Alion"
         android:inputType="text"
-        android:textColor="@color/cardview_light_background"
+        android:textColor="@color/common_google_signin_btn_text_dark_focused"
         app:layout_constraintBaseline_toBaselineOf="@+id/textView7"
         app:layout_constraintStart_toEndOf="@+id/textView7" />
 
