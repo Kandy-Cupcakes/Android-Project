@@ -190,7 +190,9 @@ public class addvehical extends AppCompatActivity {
                             pd.dismiss();
                             Toast.makeText(addvehical.this, "Upload successful", Toast.LENGTH_LONG).show();
                             Upload upload = new Upload(mEditTextFileName.getText().toString().trim(),
-                                    taskSnapshot.getDownloadUrl().toString(),Integer.parseInt(pass.getText().toString().trim()),Integer.parseInt(bag.getText().toString().trim()),Double.parseDouble(price.getText().toString().trim()),
+                                    taskSnapshot.getDownloadUrl().toString(),Integer.parseInt(pass.getText().toString().trim()),
+                                    Integer.parseInt(bag.getText().toString().trim()),
+                                    Double.parseDouble(price.getText().toString().trim()),
                                     (String) trans.getSelectedItem(),(String)avail.getSelectedItem());
 
                             String uploadId = mDatabaseRef.push().getKey();

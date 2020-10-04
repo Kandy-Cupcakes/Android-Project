@@ -42,16 +42,20 @@ public class cash extends AppCompatActivity {
 
 
       nic.setText(""+Nic);
-      day.setText(""+date);
-      tot.setText(""+amout);
-
-
-    amo =Float.parseFloat(amout);
 
         if(amo >=15000){
             amo = amo - discount(amo);
 
         }
+
+      day.setText(""+date);
+      tot.setText(""+amo);
+
+
+
+    amo =Float.parseFloat(amout);
+
+
 
 
         rootNode= FirebaseDatabase.getInstance();
