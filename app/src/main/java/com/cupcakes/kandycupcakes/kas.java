@@ -183,9 +183,6 @@ public class kas extends AppCompatActivity {
         String Question = question.getText().toString().trim();
         String Answer = answer.getText().toString().trim();
 
-        //if(!TextUtils.isEmpty(Question)) {
-
-
             if(TextUtils.isEmpty(Question)) {
                 question.setError("Required");
                 return;
@@ -201,8 +198,5 @@ public class kas extends AppCompatActivity {
 
             databaseFAQ.child(Id).setValue(faq);
             Toast.makeText(this , "FAQ added" , Toast.LENGTH_LONG).show();
-       // }
-       // else
-           // Toast.makeText(this, "You should enter a answer", Toast.LENGTH_LONG).show();
     }
 }
