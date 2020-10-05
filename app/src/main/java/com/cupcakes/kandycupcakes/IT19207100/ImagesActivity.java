@@ -15,14 +15,11 @@ import android.widget.Toast;
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.cupcakes.kandycupcakes.Admin;
 import com.cupcakes.kandycupcakes.LoginActivity;
-import com.cupcakes.kandycupcakes.MainActivity;
 import com.cupcakes.kandycupcakes.R;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
@@ -114,12 +111,12 @@ public class ImagesActivity extends AppCompatActivity implements ImageAdapter.On
 
     @Override
     public void onItemClick(int position) {
-        Toast.makeText(ImagesActivity.this, "you click at position"+ position, Toast.LENGTH_SHORT).show();
+      //  Toast.makeText(ImagesActivity.this, "you click at position"+ position, Toast.LENGTH_SHORT).show();
 
      //   Upload up = new Upload();
         Upload selectedItem = mUploads.get(position);
 
-        Intent in = new Intent(ImagesActivity.this,updatevehical.class);
+        Intent in = new Intent(ImagesActivity.this, updatevehical.class);
         in.putExtra("name",selectedItem.getName());
        in.putExtra("photo",selectedItem.getImageUrl());
         in.putExtra("KEY",selectedItem.getKey());
@@ -139,11 +136,11 @@ public class ImagesActivity extends AppCompatActivity implements ImageAdapter.On
 
     @Override
     public void onWhatEverClick(int position) {
-        Toast.makeText(ImagesActivity.this, "you click at position"+position, Toast.LENGTH_SHORT).show();
+        //Toast.makeText(ImagesActivity.this, "you click at position"+position, Toast.LENGTH_SHORT).show();
 
         Upload selectedItem = mUploads.get(position);
 
-        Intent in = new Intent(ImagesActivity.this,updatevehical.class);
+        Intent in = new Intent(ImagesActivity.this, updatevehical.class);
         in.putExtra("name",selectedItem.getName());
         in.putExtra("photo",selectedItem.getImageUrl());
         in.putExtra("KEY",selectedItem.getKey());
@@ -212,7 +209,7 @@ public class ImagesActivity extends AppCompatActivity implements ImageAdapter.On
     public boolean onMenuItemClick(MenuItem menuItem) {
         int id=menuItem.getItemId();
 
-        if(id==R.id.logout){
+        if(id== R.id.logout){
 
             Toast.makeText(getApplicationContext(),"You Logged Out",Toast.LENGTH_SHORT).show();
 

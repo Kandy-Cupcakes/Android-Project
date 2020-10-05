@@ -84,8 +84,8 @@ public class booking extends AppCompatActivity {
         awesomeValidation.addValidation(this, R.id.name,RegexTemplate.NOT_EMPTY, R.string.invalid_name);
         awesomeValidation.addValidation(this, R.id.mobile,"[0]{1}[0-9]{9}$", R.string.invalid_mobile);
         awesomeValidation.addValidation(this, R.id.nic,"[0-9]{9}[vV]$", R.string.invalid_nic);
-        awesomeValidation.addValidation(this,R.id.bdate,RegexTemplate.NOT_EMPTY,R.string.invalid_bdate);
-        awesomeValidation.addValidation(this,R.id.rdate,RegexTemplate.NOT_EMPTY,R.string.invalid_rdate);
+        awesomeValidation.addValidation(this, R.id.bdate,RegexTemplate.NOT_EMPTY, R.string.invalid_bdate);
+        awesomeValidation.addValidation(this, R.id.rdate,RegexTemplate.NOT_EMPTY, R.string.invalid_rdate);
 
         reff.addValueEventListener(new ValueEventListener() {
             @Override
@@ -195,7 +195,8 @@ public class booking extends AppCompatActivity {
                     long difference = Math.abs(date1.getTime() - date2.getTime());
                     long differenceDates = difference / (24 * 60 * 60 * 1000);
                     String dayDifference = Long.toString(differenceDates);
-                    Double total = Double.parseDouble(price) * Integer.parseInt(dayDifference);
+                     Double fprice = Double.parseDouble(price);
+                     Integer fdayDifference = Integer.parseInt(dayDifference);
 
                      final DatabaseReference upref = FirebaseDatabase.getInstance().getReference().child("uploads").child(key).child("available");
                      upref.addListenerForSingleValueEvent(new ValueEventListener() {
@@ -215,14 +216,14 @@ public class booking extends AppCompatActivity {
                     if (selectedmethod == 1) {
                         Intent i1 = new Intent(getApplicationContext(), com.cupcakes.kandycupcakes.IT19210520.cash.class);
                         i1.putExtra("NIC", nic.getText().toString());
-                        i1.putExtra("amount", String.valueOf(total));
+                        i1.putExtra("amount", String.valueOf(calculateTotal(fprice,fdayDifference)));
                         i1.putExtra("date", bdate.getText().toString());
 
                         startActivity(i1);
                     } else if (selectedmethod == 2) {
                         Intent i2 = new Intent(getApplicationContext(), credit.class);
                         i2.putExtra("NIC", nic.getText().toString());
-                        i2.putExtra("amount", String.valueOf(total));
+                        i2.putExtra("amount", String.valueOf(calculateTotal(fprice,fdayDifference)));
                         i2.putExtra("date", bdate.getText().toString());
 
                         startActivity(i2);
@@ -237,6 +238,13 @@ public class booking extends AppCompatActivity {
 
 
     }
+
+
+    public static Double calculateTotal(Double fprice, Integer fdayDifference){
+        return fprice * fdayDifference;
+    }
+
+
     public void checkButton1(View v){
         selectedmethod = 1;
 

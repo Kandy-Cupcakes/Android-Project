@@ -19,14 +19,15 @@ import static androidx.test.espresso.Espresso.onView;
 import static androidx.test.espresso.action.ViewActions.click;
 import static androidx.test.espresso.matcher.ViewMatchers.withId;
 import static androidx.test.platform.app.InstrumentationRegistry.getInstrumentation;
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertNotNull;
 
 public class showuploadstest {
 
     @Rule
     public ActivityTestRule<addvehical> mAcvtivityTestRule = new ActivityTestRule<addvehical>(addvehical.class);
 
-    private  addvehical mactivity=null;
+    private addvehical mactivity=null;
+
 
     Instrumentation.ActivityMonitor monitor = getInstrumentation().addMonitor(ImagesActivity.class.getName(),null,false);
 
@@ -44,6 +45,9 @@ public class showuploadstest {
         Activity second = getInstrumentation().waitForMonitorWithTimeout(monitor,5000);
         assertNotNull(second);
         second.finish();
+
+
+
     }
 
     @After

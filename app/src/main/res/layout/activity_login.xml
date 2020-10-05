@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".LoginActivity"
-    android:background="@drawable/gradient"
+    android:background="@drawable/backgr"
     android:id="@+id/navdraw4"
     android:orientation="vertical">
 
@@ -13,21 +13,21 @@
        android:layout_width="match_parent"
        android:layout_height="match_parent" >
 
-    <Button
-        android:id="@+id/logbtn"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="108dp"
-        android:background="@drawable/shape"
-        android:text="Log in"
-        android:textColor="@color/cardview_light_background"
-        app:layout_constraintEnd_toEndOf="parent"
+       <Button
+           android:id="@+id/logbtn"
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content"
+           android:layout_marginTop="44dp"
+           android:background="@drawable/shape"
+           android:text="Log in"
+           android:textColor="@color/cardview_light_background"
+           app:layout_constraintEnd_toEndOf="parent"
 
-        app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txtpassword" />
+           app:layout_constraintHorizontal_bias="0.498"
+           app:layout_constraintStart_toStartOf="parent"
+           app:layout_constraintTop_toBottomOf="@+id/txtpassword" />
 
-    <EditText
+       <EditText
         android:id="@+id/txtpassword"
         android:layout_width="216dp"
         android:layout_height="52dp"
@@ -44,25 +44,24 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/txtusername" />
 
-    <EditText
-        android:id="@+id/txtusername"
-        android:layout_width="214dp"
-        android:layout_height="48dp"
-        android:layout_marginTop="192dp"
-        android:background="@drawable/boarder"
-        android:ems="10"
-        android:padding="10dp"
-        android:hint="User Name"
-        android:inputType="textPersonName"
-        android:textColor="@color/cardview_light_background"
-        android:textColorHint="@color/cardview_light_background"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.527"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-      />
+       <EditText
+           android:id="@+id/txtusername"
+           android:layout_width="214dp"
+           android:layout_height="48dp"
+           android:layout_marginTop="144dp"
+           android:background="@drawable/boarder"
+           android:ems="10"
+           android:hint="User Name"
+           android:inputType="textPersonName"
+           android:padding="10dp"
+           android:textColor="@color/cardview_light_background"
+           android:textColorHint="@color/cardview_light_background"
+           app:layout_constraintEnd_toEndOf="parent"
+           app:layout_constraintHorizontal_bias="0.538"
+           app:layout_constraintStart_toStartOf="parent"
+           app:layout_constraintTop_toTopOf="parent" />
 
-    <TextView
+       <TextView
         android:id="@+id/textView26"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

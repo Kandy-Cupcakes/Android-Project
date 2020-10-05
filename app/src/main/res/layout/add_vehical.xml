@@ -18,13 +18,12 @@
         android:layout_marginTop="110dp"
         android:layout_marginEnd="8dp"
         android:background="@drawable/rounded_button"
-        android:text="Choose Image"
+        android:text="@string/btnchoose"
         android:textColor="@color/cardview_light_background"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/image_view"
-        app:layout_constraintTop_toTopOf="parent"
-        />
+        app:layout_constraintTop_toTopOf="parent" />
 
 
     <EditText
@@ -61,7 +60,7 @@
         android:layout_marginStart="52dp"
         android:layout_marginTop="116dp"
         android:background="@drawable/shape"
-        android:text="Upload"
+        android:text="@string/btnadd"
         android:textColor="@color/cardview_light_background"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView11" />

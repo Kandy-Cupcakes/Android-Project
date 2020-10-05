@@ -1,21 +1,12 @@
 package com.cupcakes.kandycupcakes.IT19210698;
 
-import android.content.Intent;
 import android.os.Bundle;
-import android.view.View;
 import android.widget.SearchView;
-import android.widget.Toast;
 
-import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.view.GravityCompat;
-import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.cupcakes.kandycupcakes.IT19152110.customerView;
-import com.cupcakes.kandycupcakes.LoginActivity;
-import com.cupcakes.kandycupcakes.MainActivity;
 import com.cupcakes.kandycupcakes.R;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;

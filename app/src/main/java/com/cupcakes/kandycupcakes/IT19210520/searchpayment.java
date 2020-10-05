@@ -45,7 +45,7 @@ public class searchpayment extends AppCompatActivity {
 
 
 
-                Intent i = new Intent(searchpayment.this,updatepayment.class);
+                Intent i = new Intent(searchpayment.this, updatepayment.class);
                 i.putExtra("nic",n);
 
                 startActivity(i);

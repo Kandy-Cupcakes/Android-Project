@@ -48,7 +48,7 @@ class vehiAdapter extends RecyclerView.Adapter<vehiAdapter.vehiHolder>{
         holder.btnbook.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(holder.btnbook.getContext(),booking.class);
+                Intent intent = new Intent(holder.btnbook.getContext(), booking.class);
                 intent.putExtra("vehi_price",holder.tprice.getText().toString());
                 intent.putExtra("key",vehicleList.get(position).getKey());
                 holder.btnbook.getContext().startActivity(intent);

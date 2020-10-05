@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">KANDY CARS</string>
+    <string name="app_name">Kandy Cars</string>
     <string name="fill">Please Fill the Field </string>
     <string name="invalid">Please enter the correct input</string>
 
@@ -16,6 +16,21 @@
         <item>Available</item>
         <item>Not Available</item>
     </string-array>
+
+    <string name="self_drive">Self Drive</string>
+    <string name="air">Air Conditioned</string>
+    <string name="Passenger">Passengers</string>
+    <string name="Trans">Transmission</string>
+    <string name="bag">Bag(s)</string>
+
+    <string name="btnchoose">CHOOSE IMAGE</string>
+    <string name="btnadd">ADD</string>
+    <string name="btnupdate">UPDATE</string>
+
+
+
+
+
 
     <string name="add_faq">Add FAQ</string>
     <string name="enter_question">Enter question</string>

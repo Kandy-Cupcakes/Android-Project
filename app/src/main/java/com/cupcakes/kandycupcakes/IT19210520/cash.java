@@ -39,7 +39,7 @@ public class cash extends AppCompatActivity {
         TextView nic =  findViewById(R.id.txtnic);
         TextView day =findViewById(R.id.txtdate);
         TextView tot = findViewById(R.id.txtamount);
-
+        amo =Float.parseFloat(amout);
 
       nic.setText(""+Nic);
 
@@ -53,7 +53,7 @@ public class cash extends AppCompatActivity {
 
 
 
-    amo =Float.parseFloat(amout);
+
 
 
 

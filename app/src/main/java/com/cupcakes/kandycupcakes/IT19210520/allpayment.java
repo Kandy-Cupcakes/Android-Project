@@ -13,7 +13,6 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
-import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -57,7 +56,7 @@ public class allpayment extends AppCompatActivity {
         btSearch.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent i = new Intent(allpayment.this,searchpayment.class);
+                Intent i = new Intent(allpayment.this, searchpayment.class);
                 startActivity(i);
             }
         });

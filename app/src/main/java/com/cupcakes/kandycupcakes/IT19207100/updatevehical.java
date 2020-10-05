@@ -83,23 +83,23 @@ public class updatevehical extends AppCompatActivity {
         upavail=findViewById(R.id.spinner3);
 
         awesomeValidation = new AwesomeValidation(ValidationStyle.BASIC);
-        awesomeValidation.addValidation(this,R.id.updateimage,
-                RegexTemplate.NOT_EMPTY,R.string.fill);
+        awesomeValidation.addValidation(this, R.id.updateimage,
+                RegexTemplate.NOT_EMPTY, R.string.fill);
 
 
-        awesomeValidation.addValidation(this,R.id.updatetext,
-                RegexTemplate.NOT_EMPTY,R.string.fill);
+        awesomeValidation.addValidation(this, R.id.updatetext,
+                RegexTemplate.NOT_EMPTY, R.string.fill);
 
-        awesomeValidation.addValidation(this,R.id.updatetext,"[a-zA-Z ]{1,20}",R.string.invalid);
+        awesomeValidation.addValidation(this, R.id.updatetext,"[a-zA-Z ]{1,20}", R.string.invalid);
 
-        awesomeValidation.addValidation(this,R.id.passengers1,
-                RegexTemplate.NOT_EMPTY,R.string.fill);
+        awesomeValidation.addValidation(this, R.id.passengers1,
+                RegexTemplate.NOT_EMPTY, R.string.fill);
 
-        awesomeValidation.addValidation(this,R.id.bagss,
-                RegexTemplate.NOT_EMPTY,R.string.fill);
+        awesomeValidation.addValidation(this, R.id.bagss,
+                RegexTemplate.NOT_EMPTY, R.string.fill);
 
-        awesomeValidation.addValidation(this,R.id.dayprice1,
-                RegexTemplate.NOT_EMPTY,R.string.fill);
+        awesomeValidation.addValidation(this, R.id.dayprice1,
+                RegexTemplate.NOT_EMPTY, R.string.fill);
 
 
         up = new Upload();

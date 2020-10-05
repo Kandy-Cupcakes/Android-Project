@@ -1,21 +1,16 @@
 package com.cupcakes.kandycupcakes;
 
-import androidx.appcompat.app.ActionBar;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.view.GravityCompat;
-import androidx.drawerlayout.widget.DrawerLayout;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
-import android.widget.PopupMenu;
+
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.view.GravityCompat;
+import androidx.drawerlayout.widget.DrawerLayout;
 
 import com.cupcakes.kandycupcakes.IT19152110.customerView;
-import com.cupcakes.kandycupcakes.IT19207100.ImagesActivity;
-import com.cupcakes.kandycupcakes.IT19210698.Bookings;
 import com.cupcakes.kandycupcakes.IT19210698.availablevehicles;
-import com.cupcakes.kandycupcakes.IT19210698.booking;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -91,12 +86,12 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void ClickAddFaq(View view){
-        Intent intent = new Intent(MainActivity.this,customerView.class);
+        Intent intent = new Intent(MainActivity.this, customerView.class);
         startActivity(intent);
     }
 
     public void adminlogin(View view){
-        Intent intent = new Intent(MainActivity.this,LoginActivity.class);
+        Intent intent = new Intent(MainActivity.this, LoginActivity.class);
         startActivity(intent);
     }
 

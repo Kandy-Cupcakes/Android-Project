@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.view.View;
 import android.webkit.MimeTypeMap;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
@@ -34,6 +35,9 @@ import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.StorageTask;
 import com.google.firebase.storage.UploadTask;
 import com.squareup.picasso.Picasso;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class addvehical extends AppCompatActivity {
 
@@ -74,26 +78,26 @@ public class addvehical extends AppCompatActivity {
         avail=findViewById(R.id.spinner2);
 
         awesomeValidation = new AwesomeValidation(ValidationStyle.BASIC);
-        awesomeValidation.addValidation(this,R.id.image_view,
-                RegexTemplate.NOT_EMPTY,R.string.fill);
+        awesomeValidation.addValidation(this, R.id.image_view,
+                RegexTemplate.NOT_EMPTY, R.string.fill);
 
 
-        awesomeValidation.addValidation(this,R.id.edit_text_file_name,
-                RegexTemplate.NOT_EMPTY,R.string.fill);
+        awesomeValidation.addValidation(this, R.id.edit_text_file_name,
+                RegexTemplate.NOT_EMPTY, R.string.fill);
 
-        awesomeValidation.addValidation(this,R.id.edit_text_file_name,"[a-zA-Z ]{1,20}",R.string.invalid);
+        awesomeValidation.addValidation(this, R.id.edit_text_file_name,"[a-zA-Z ]{1,20}", R.string.invalid);
 
-        awesomeValidation.addValidation(this,R.id.passengers,
-                RegexTemplate.NOT_EMPTY,R.string.fill);
+        awesomeValidation.addValidation(this, R.id.passengers,
+                RegexTemplate.NOT_EMPTY, R.string.fill);
 
-        awesomeValidation.addValidation(this,R.id.spinner,
-                RegexTemplate.NOT_EMPTY,R.string.fill);
+        awesomeValidation.addValidation(this, R.id.spinner,
+                RegexTemplate.NOT_EMPTY, R.string.fill);
 
-        awesomeValidation.addValidation(this,R.id.bag,
-                RegexTemplate.NOT_EMPTY,R.string.fill);
+        awesomeValidation.addValidation(this, R.id.bag,
+                RegexTemplate.NOT_EMPTY, R.string.fill);
 
-        awesomeValidation.addValidation(this,R.id.dayprice,
-                RegexTemplate.NOT_EMPTY,R.string.fill);
+        awesomeValidation.addValidation(this, R.id.dayprice,
+                RegexTemplate.NOT_EMPTY, R.string.fill);
 
 
 
@@ -197,6 +201,8 @@ public class addvehical extends AppCompatActivity {
 
                             String uploadId = mDatabaseRef.push().getKey();
                             mDatabaseRef.child(uploadId).setValue(upload);
+
+                            clearfields();
                         }
                     })
 
@@ -224,5 +230,41 @@ public class addvehical extends AppCompatActivity {
     private void openImagesActivity() {
         Intent intent = new Intent(this, ImagesActivity.class);
         startActivity(intent);
+    }
+
+    public void clearfields(){
+        mEditTextFileName.setText("");
+        pass.setText("");
+        bag.setText("");
+        price.setText("");
+       // mImageView.setImageURI(null);
+        Picasso.with(this).load(R.drawable.upd2).placeholder(R.mipmap.ic_launcher).fit().centerCrop().into(mImageView);
+
+        List<String> category = new ArrayList<>();
+
+        category.add("Select One");
+        category.add("Auto");
+        category.add("Manual");
+
+
+        ArrayAdapter<String> dataAdapter;
+        dataAdapter = new ArrayAdapter<>(this,android.R.layout.simple_spinner_item,category);
+        dataAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+
+        trans.setAdapter(dataAdapter);
+
+
+        List<String> category1 = new ArrayList<>();
+        category1.add("Select One");
+        category1.add("Available");
+        category1.add("Not Available");
+
+
+        ArrayAdapter<String> dataAdaptera;
+        dataAdaptera = new ArrayAdapter<>(this,android.R.layout.simple_spinner_item,category1);
+        dataAdaptera.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+
+        avail.setAdapter(dataAdaptera);
+
     }
 }

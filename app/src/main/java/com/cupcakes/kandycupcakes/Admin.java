@@ -1,13 +1,5 @@
 package com.cupcakes.kandycupcakes;
 
-import androidx.annotation.LayoutRes;
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.ActionBar;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.Toolbar;
-import androidx.core.view.GravityCompat;
-import androidx.drawerlayout.widget.DrawerLayout;
-
 import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
@@ -18,6 +10,12 @@ import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.PopupMenu;
 import android.widget.Toast;
+
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.ActionBar;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.view.GravityCompat;
+import androidx.drawerlayout.widget.DrawerLayout;
 
 import com.cupcakes.kandycupcakes.IT19152110.kas;
 import com.cupcakes.kandycupcakes.IT19207100.ImagesActivity;
@@ -87,7 +85,7 @@ public class Admin extends AppCompatActivity implements PopupMenu.OnMenuItemClic
 
         int id=item.getItemId();
 
-        if(id==R.id.logout){
+        if(id== R.id.logout){
 
             Toast.makeText(getApplicationContext(),"You Logged Out",Toast.LENGTH_SHORT).show();
 
@@ -124,16 +122,25 @@ public class Admin extends AppCompatActivity implements PopupMenu.OnMenuItemClic
         recreate();
     }
 
-    public void ClickAdd(View view){
-        Intent intent = new Intent(Admin.this,ImagesActivity.class);
+    public void Clickvehical(View view){
+        Intent intent = new Intent(Admin.this, ImagesActivity.class);
         startActivity(intent);
     }
 
-    public void ClickAddFaq(View view){
-        Intent intent = new Intent(Admin.this,ImagesActivity.class);
+    public void ClickFaq(View view){
+        Intent intent = new Intent(Admin.this, kas.class);
         startActivity(intent);
     }
 
+    public void clickpayment(View view){
+        Intent intent = new Intent(Admin.this, allpayment.class);
+        startActivity(intent);
+    }
+
+    public void clicklogout(View view){
+        Intent intent = new Intent(Admin.this, LoginActivity.class);
+        startActivity(intent);
+    }
     public void showpopup(View v){
         PopupMenu popupMenu = new PopupMenu(this,v);
         popupMenu.setOnMenuItemClickListener(this);
@@ -145,7 +152,7 @@ public class Admin extends AppCompatActivity implements PopupMenu.OnMenuItemClic
     public boolean onMenuItemClick(MenuItem menuItem) {
         int id=menuItem.getItemId();
 
-        if(id==R.id.logout){
+        if(id== R.id.logout){
 
             Toast.makeText(getApplicationContext(),"You Logged Out",Toast.LENGTH_SHORT).show();
 

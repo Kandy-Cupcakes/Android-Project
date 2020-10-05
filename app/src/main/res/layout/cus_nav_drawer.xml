@@ -3,10 +3,15 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/gradient"
+    android:background="@drawable/bluen"
     android:orientation="vertical">
 
-
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:src="@drawable/front"
+        android:layout_marginTop="35dp"/>
 
 
     <LinearLayout
@@ -14,7 +19,7 @@
         android:layout_height="wrap_content"
 
         android:orientation="horizontal"
-        android:layout_marginTop="160dp"
+        android:layout_marginTop="80dp"
         android:gravity="center_vertical"
         android:onClick="ClickHome">
 
@@ -22,18 +27,19 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="32dp"
-            android:src="@drawable/home"/>
+            android:src="@drawable/adminhome"/>
 
         <TextView
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="32dp"
             android:layout_weight="1"
+            android:fontFamily="@font/alike"
             android:padding="12dp"
             android:text="Home"
-            android:textStyle="bold"
             android:textColor="#fff"
-            android:textSize="18sp" />
+            android:textSize="18sp"
+            android:textStyle="bold" />
 
     </LinearLayout>
 
@@ -49,19 +55,20 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="32dp"
-            android:layout_marginTop="8dp"
-            android:src="@drawable/book"/>
+            android:layout_marginTop="12dp"
+            android:src="@drawable/carg"/>
 
         <TextView
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="32dp"
             android:layout_weight="1"
+            android:fontFamily="@font/alike"
             android:padding="12dp"
-            android:text="Booking Vehical"
-            android:textStyle="bold"
+            android:text="Vehicals"
             android:textColor="#fff"
-            android:textSize="18sp" />
+            android:textSize="18sp"
+            android:textStyle="bold" />
 
     </LinearLayout>
 
@@ -78,13 +85,14 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="32dp"
             android:layout_marginTop="8dp"
-            android:src="@drawable/faqs"/>
+            android:src="@drawable/adminfaq"/>
 
         <TextView
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="35dp"
             android:layout_weight="1"
+            android:fontFamily="@font/alike"
             android:padding="12dp"
             android:text="FAQ"
             android:textColor="#fff"
@@ -114,11 +122,12 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="32dp"
             android:layout_weight="1"
+            android:fontFamily="@font/alike"
             android:padding="12dp"
             android:text="Admin"
-            android:textStyle="bold"
             android:textColor="#fff"
-            android:textSize="18sp" />
+            android:textSize="18sp"
+            android:textStyle="bold" />
 
     </LinearLayout>
 

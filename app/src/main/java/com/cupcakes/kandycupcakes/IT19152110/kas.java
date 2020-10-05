@@ -12,7 +12,6 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
-import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -94,7 +93,7 @@ public class kas extends AppCompatActivity {
                     FAQList.add(faqL);
                 }
 
-                faqList adapter = new faqList(kas.this, FAQList);
+                com.cupcakes.kandycupcakes.IT19152110.faqList adapter = new faqList(kas.this, FAQList);
                 faqList.setAdapter(adapter);
             }
 

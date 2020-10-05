@@ -60,7 +60,7 @@ public class customerView extends AppCompatActivity {
                         FAQList.add(faqL);
                     }
 
-                    faqList adapter = new faqList(customerView.this, FAQList);
+                    com.cupcakes.kandycupcakes.IT19152110.faqList adapter = new faqList(customerView.this, FAQList);
                     faqList.setAdapter(adapter);
                 }
 
